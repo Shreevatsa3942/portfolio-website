@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-navy-900 text-slate-dark font-sans antialiased leading-relaxed;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-slate-lightest font-bold;
+  }
+
+  p {
+    @apply text-slate-light;
+  }
+
+  a {
+    @apply text-teal-300 transition-colors duration-300 hover:underline;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-navy-900;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-navy-700 rounded;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-slate-dark;
+}
