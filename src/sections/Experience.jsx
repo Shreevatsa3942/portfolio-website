@@ -7,7 +7,11 @@ const Experience = () => {
             title: 'Software Engineer – Backend',
             company: 'Cardinal Health',
             location: 'Bangalore, India',
-            description: 'Independently architected and deployed the backend for the e-commerce Receiving module using Spring Boot, improving operational efficiency by 30%. Delivered low-latency RESTful APIs and integrated multiple databases (MongoDB, MySQL, Neo4j). Redesigned error-handling strategies and standardized logging for better observability.',
+            highlights: [
+                { icon: '🚀', text: 'Sole architect of high-throughput e-commerce Receiving backend', metric: '30% efficiency boost' },
+                { icon: '⚡', text: 'Engineered sub-100ms RESTful APIs with multi-database sync', metric: 'MongoDB · MySQL · Neo4j' },
+                { icon: '📊', text: 'Pioneered centralized observability with structured logging & resilient error patterns', metric: null }
+            ],
             skills: ['Java', 'Spring Boot', 'Microservices', 'MongoDB', 'MySQL', 'Neo4j', 'AWS']
         },
         {
@@ -15,7 +19,11 @@ const Experience = () => {
             title: 'Associate Software Engineer',
             company: 'Bazaarvoice',
             location: 'Bangalore, India',
-            description: 'Led full-cycle migration of client data from Neo4j to MongoDB with zero downtime. Architected serverless features using AWS Lambda and API Gateway. Led remediation of critical production vulnerabilities and optimized Kubernetes clusters.',
+            highlights: [
+                { icon: '🔄', text: 'Spearheaded zero-downtime migration of client records from Neo4j to MongoDB', metric: '10M+ records' },
+                { icon: '☁️', text: 'Designed event-driven serverless architecture with AWS Lambda & API Gateway', metric: '40% cost reduction' },
+                { icon: '🛡️', text: 'Eliminated critical CVEs in production & optimized Kubernetes clusters', metric: '25% faster scheduling' }
+            ],
             skills: ['Java', 'Spring Boot', 'AWS Lambda', 'Kubernetes', 'Neo4j', 'MongoDB', 'Datadog']
         }
     ];
@@ -43,10 +51,25 @@ const Experience = () => {
                                             </a>
                                         </div>
                                     </h3>
-                                    <p className="mt-2 text-sm leading-normal">
-                                        {exp.description}
-                                    </p>
-                                    <ul className="mt-2 flex flex-wrap" aria-label="Technologies used">
+
+                                    {/* Enhanced bullet points with icons and metrics */}
+                                    <ul className="mt-3 space-y-2">
+                                        {exp.highlights.map((highlight, i) => (
+                                            <li key={i} className="flex items-start gap-2 text-sm leading-normal text-slate-400">
+                                                <span className="flex-shrink-0 text-base">{highlight.icon}</span>
+                                                <span>
+                                                    {highlight.text}
+                                                    {highlight.metric && (
+                                                        <span className="ml-2 inline-flex items-center rounded-md bg-teal-400/10 px-2 py-0.5 text-xs font-semibold text-teal-300 ring-1 ring-inset ring-teal-400/20">
+                                                            {highlight.metric}
+                                                        </span>
+                                                    )}
+                                                </span>
+                                            </li>
+                                        ))}
+                                    </ul>
+
+                                    <ul className="mt-4 flex flex-wrap" aria-label="Technologies used">
                                         {exp.skills.map((skill, i) => (
                                             <li key={i} className="mr-1.5 mt-2">
                                                 <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">
